@@ -6,7 +6,7 @@ plugins {
 
 apply plugin: 'application'
 
-mainClassName = 'com.utm.mementomori.MementomoriApplication'
+mainClassName = 'com.utm.mementomori.Application'
 
 group = 'com.utm'
 version = '0.0.1-SNAPSHOT'
