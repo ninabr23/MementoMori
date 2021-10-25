@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `mementomori` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `mementomori`;
 -- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
 --
 -- Host: localhost    Database: mementomori
@@ -33,21 +35,13 @@ CREATE TABLE `accounts` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `blog`
+-- Dumping data for table `accounts`
 --
 
-DROP TABLE IF EXISTS `blog`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `blog` (
-  `ID User` int NOT NULL AUTO_INCREMENT,
-  `Reflections` int DEFAULT NULL,
-  `Memories` int DEFAULT NULL,
-  `Goals` int DEFAULT NULL,
-  PRIMARY KEY (`ID User`),
-  UNIQUE KEY `ID User_UNIQUE` (`ID User`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `accounts` WRITE;
+/*!40000 ALTER TABLE `accounts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `countries statistics`
@@ -67,6 +61,15 @@ CREATE TABLE `countries statistics` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `countries statistics`
+--
+
+LOCK TABLES `countries statistics` WRITE;
+/*!40000 ALTER TABLE `countries statistics` DISABLE KEYS */;
+/*!40000 ALTER TABLE `countries statistics` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `feed`
 --
 
@@ -84,50 +87,13 @@ CREATE TABLE `feed` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `goals`
+-- Dumping data for table `feed`
 --
 
-DROP TABLE IF EXISTS `goals`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `goals` (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `Description` mediumtext,
-  `Achieved` bit(1) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `memories`
---
-
-DROP TABLE IF EXISTS `memories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `memories` (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `Description` mediumtext,
-  `Images` mediumtext,
-  `Links` mediumtext,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `reflections`
---
-
-DROP TABLE IF EXISTS `reflections`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `reflections` (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `Description` mediumtext,
-  `Images` mediumtext,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `feed` WRITE;
+/*!40000 ALTER TABLE `feed` DISABLE KEYS */;
+/*!40000 ALTER TABLE `feed` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `topics`
@@ -145,6 +111,15 @@ CREATE TABLE `topics` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `topics`
+--
+
+LOCK TABLES `topics` WRITE;
+/*!40000 ALTER TABLE `topics` DISABLE KEYS */;
+/*!40000 ALTER TABLE `topics` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user's personal data`
 --
 
@@ -160,12 +135,29 @@ CREATE TABLE `user's personal data` (
   `Drinking alcohol` tinyint DEFAULT NULL,
   `Healthy food` tinyint DEFAULT NULL,
   `Sport` tinyint DEFAULT NULL,
-  `Chronic deseases` varchar(255) DEFAULT NULL,
+  `Chronic diseases` varchar(255) DEFAULT NULL,
   `User's picture` blob,
   PRIMARY KEY (`ID User`),
   UNIQUE KEY `ID User_UNIQUE` (`ID User`)
 ) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user's personal data`
+--
+
+LOCK TABLES `user's personal data` WRITE;
+/*!40000 ALTER TABLE `user's personal data` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user's personal data` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping events for database 'mementomori'
+--
+
+--
+-- Dumping routines for database 'mementomori'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -176,4 +168,4 @@ CREATE TABLE `user's personal data` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-20 16:18:47
+-- Dump completed on 2021-10-25 11:20:32
