@@ -15,12 +15,12 @@ public class MainController {
     private UserRepository userRepository;
 
     @PostMapping(path="/add")
-    public @ResponseBody String addNewUser (@RequestParam String name
-            , @RequestParam String email) {
+    public @ResponseBody String addNewUser (@RequestParam String gender
+            , @RequestParam String country) {
 
         User n = new User();
-        n.setGender(name);
-        n.setCountry(email);
+        n.setGender(gender);
+        n.setCountry(country);
         userRepository.save(n);
         return "Saved";
     }
