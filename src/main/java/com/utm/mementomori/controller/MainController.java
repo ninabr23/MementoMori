@@ -1,5 +1,7 @@
-package com.utm.progress;
+package com.utm.mementomori.controller;
 
+import com.utm.mementomori.entity.User;
+import com.utm.mementomori.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

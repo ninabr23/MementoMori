@@ -1,4 +1,6 @@
-package com.utm.progress;
+package com.utm.mementomori.entity;
+
+import com.utm.mementomori.entity.Countries;
 
 import javax.persistence.*;
 import java.sql.Blob;

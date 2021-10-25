@@ -1,4 +1,4 @@
-package com.utm.progress;
+package com.utm.mementomori.entity;
 
 import javax.persistence.*;
 import java.sql.Blob;
