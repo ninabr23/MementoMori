@@ -1,7 +1,6 @@
 package com.utm.mementomori.entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,8 +19,8 @@ public class Countries {
     @Column(name="Average Age Male")
     private Integer avgMale;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<User> users = new ArrayList<>();
+    @OneToMany(mappedBy = "countries")
+    private List<User> users;
 
     public void setId(String id) { this.id = id; }
     public void setName(String name) { this.name = name; }

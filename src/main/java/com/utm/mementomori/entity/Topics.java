@@ -1,8 +1,7 @@
 package com.utm.mementomori.entity;
 
-import com.utm.mementomori.entity.Feed;
-
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="topics")
@@ -11,8 +10,8 @@ public class Topics {
     @Column(name="Abbreviation")
     private String abbreviation;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Feed feed;
+    @OneToMany(mappedBy = "topics")
+    private List<Feed> feeds;
 
     @Column(name="Theme")
     private String theme;

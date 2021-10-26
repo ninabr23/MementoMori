@@ -1,7 +1,5 @@
 package com.utm.mementomori.entity;
 
-import com.utm.mementomori.entity.Countries;
-
 import javax.persistence.*;
 import java.sql.Blob;
 import java.time.LocalDate;
@@ -18,7 +16,8 @@ public class User {
     @PrimaryKeyJoinColumn
     private Accounts accounts;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "Country", nullable = false)
     private Countries countries;
 
     @Column(name="Gender")
@@ -26,9 +25,6 @@ public class User {
 
     @Column(name="Birthday")
     private LocalDate birthday;
-
-    @Column(name="Country")
-    private String country;
 
     @Column(name="Smoking")
     private boolean smoking;
@@ -52,7 +48,7 @@ public class User {
     public void setId(Integer id) { this.id = id; }
     public void setGender(String gender) { this.gender = gender; }
     public void setBirthday(LocalDate birthday) { this.birthday = birthday; }
-    public void setCountry(String country) { this.country = country; }
+    public void setCountries(Countries countries) { this.countries = countries; }
     public void setSmoking(boolean smoking) { this.smoking = smoking; }
     public void setDrinking(boolean drinking) { this.drinking = drinking; }
     public void setHealthyFood(boolean healthyFood) { this.healthyFood = healthyFood; }
@@ -63,7 +59,7 @@ public class User {
     public Integer getId() { return id; }
     public String getGender() { return gender; }
     public LocalDate getBirthday() { return birthday; }
-    public String getCountry() { return country; }
+    public Countries getCountries() { return countries; }
     public boolean isSmoking() { return smoking; }
     public boolean isDrinking() { return drinking; }
     public boolean isHealthyFood() { return healthyFood; }
