@@ -18,11 +18,11 @@ public class MainController {
 
     @PostMapping(path="/add")
     public @ResponseBody String addNewUser (@RequestParam String gender
-            , @RequestParam String country) {
+            , @RequestParam boolean smoking) {
 
         User n = new User();
         n.setGender(gender);
-        n.setCountry(country);
+        n.setSmoking(smoking);
         userRepository.save(n);
         return "Saved";
     }
