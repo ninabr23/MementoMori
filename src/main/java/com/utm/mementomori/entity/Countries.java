@@ -4,31 +4,53 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="countries statistics")
+@Table(name = "countries")
 public class Countries {
     @Id
-    @Column(name="ID country")
+    @Column(name = "id")
     private String id;
 
-    @Column(name="Name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name="Average Age Female")
+    @Column(name = "avg_female")
     private Integer avgFemale;
 
-    @Column(name="Average Age Male")
+    @Column(name = "avg_male")
     private Integer avgMale;
 
     @OneToMany(mappedBy = "countries")
     private List<User> users;
 
-    public void setId(String id) { this.id = id; }
-    public void setName(String name) { this.name = name; }
-    public void setAvgFemale(Integer avgFemale) { this.avgFemale = avgFemale; }
-    public void setAvgMale(Integer avgMale) { this.avgMale = avgMale; }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public String getId() { return id; }
-    public String getName() { return name; }
-    public Integer getAvgFemale() { return avgFemale; }
-    public Integer getAvgMale() { return avgMale; }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAvgFemale(Integer avgFemale) {
+        this.avgFemale = avgFemale;
+    }
+
+    public void setAvgMale(Integer avgMale) {
+        this.avgMale = avgMale;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getAvgFemale() {
+        return avgFemale;
+    }
+
+    public Integer getAvgMale() {
+        return avgMale;
+    }
 }

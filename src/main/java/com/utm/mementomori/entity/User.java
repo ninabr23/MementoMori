@@ -5,65 +5,124 @@ import java.sql.Blob;
 import java.time.LocalDate;
 
 @Entity
-@Table(name="user's personal data")
+@Table(name = "user")
 public class User {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="ID User")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "id")
     private Accounts accounts;
 
     @ManyToOne
-    @JoinColumn(name = "Country", nullable = false)
+    @JoinColumn(name = "country", nullable = false)
     private Countries countries;
 
-    @Column(name="Gender")
+    @Column(name = "gender")
     private String gender;
 
-    @Column(name="Birthday")
+    @Column(name = "birthday")
     private LocalDate birthday;
 
-    @Column(name="Smoking")
+    @Column(name = "smoking")
     private boolean smoking;
 
-    @Column(name="Drinking alcohol")
+    @Column(name = "drinking")
     private boolean drinking;
 
-    @Column(name="Healthy food")
+    @Column(name = "healthy_food")
     private boolean healthyFood;
 
-    @Column(name="Sport")
+    @Column(name = "sport")
     private boolean sport;
 
-    @Column(name="Chronic diseases")
+    @Column(name = "diseases")
     private String disease;
 
     @Lob
-    @Column(name="User's picture")
+    @Column(name = "picture")
     private Blob picture;
 
-    public void setId(Integer id) { this.id = id; }
-    public void setGender(String gender) { this.gender = gender; }
-    public void setBirthday(LocalDate birthday) { this.birthday = birthday; }
-    public void setCountries(Countries countries) { this.countries = countries; }
-    public void setSmoking(boolean smoking) { this.smoking = smoking; }
-    public void setDrinking(boolean drinking) { this.drinking = drinking; }
-    public void setHealthyFood(boolean healthyFood) { this.healthyFood = healthyFood; }
-    public void setSport(boolean sport) { this.sport = sport; }
-    public void setDisease(String disease) { this.disease = disease; }
-    public void setPicture(Blob picture) { this.picture = picture; }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-    public Integer getId() { return id; }
-    public String getGender() { return gender; }
-    public LocalDate getBirthday() { return birthday; }
-    public Countries getCountries() { return countries; }
-    public boolean isSmoking() { return smoking; }
-    public boolean isDrinking() { return drinking; }
-    public boolean isHealthyFood() { return healthyFood; }
-    public boolean isSport() { return sport; }
-    public String getDisease() { return disease; }
-    public Blob getPicture() { return picture; }
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    public void setCountries(Countries countries) {
+        this.countries = countries;
+    }
+
+    public void setSmoking(boolean smoking) {
+        this.smoking = smoking;
+    }
+
+    public void setDrinking(boolean drinking) {
+        this.drinking = drinking;
+    }
+
+    public void setHealthyFood(boolean healthyFood) {
+        this.healthyFood = healthyFood;
+    }
+
+    public void setSport(boolean sport) {
+        this.sport = sport;
+    }
+
+    public void setDisease(String disease) {
+        this.disease = disease;
+    }
+
+    public void setPicture(Blob picture) {
+        this.picture = picture;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public Countries getCountries() {
+        return countries;
+    }
+
+    public boolean isSmoking() {
+        return smoking;
+    }
+
+    public boolean isDrinking() {
+        return drinking;
+    }
+
+    public boolean isHealthyFood() {
+        return healthyFood;
+    }
+
+    public boolean isSport() {
+        return sport;
+    }
+
+    public String getDisease() {
+        return disease;
+    }
+
+    public Blob getPicture() {
+        return picture;
+    }
 }

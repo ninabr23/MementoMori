@@ -4,21 +4,31 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="topics")
+@Table(name = "topics")
 public class Topics {
     @Id
-    @Column(name="Abbreviation")
+    @Column(name = "abbreviation")
     private String abbreviation;
 
     @OneToMany(mappedBy = "topics")
     private List<Feed> feeds;
 
-    @Column(name="Theme")
+    @Column(name = "theme")
     private String theme;
 
-    public void setAbbreviation(String abbreviation) { this.abbreviation = abbreviation; }
-    public void setTheme(String theme) { this.theme = theme; }
+    public void setAbbreviation(String abbreviation) {
+        this.abbreviation = abbreviation;
+    }
 
-    public String getAbbreviation() { return abbreviation; }
-    public String getTheme() { return theme; }
+    public void setTheme(String theme) {
+        this.theme = theme;
+    }
+
+    public String getAbbreviation() {
+        return abbreviation;
+    }
+
+    public String getTheme() {
+        return theme;
+    }
 }
