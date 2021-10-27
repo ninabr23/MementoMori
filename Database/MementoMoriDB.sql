@@ -25,12 +25,12 @@ DROP TABLE IF EXISTS `accounts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `accounts` (
-  `ID User` int NOT NULL AUTO_INCREMENT,
-  `User name` varchar(255) DEFAULT NULL,
-  `E-mail` varchar(255) DEFAULT NULL,
-  `Password` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`ID User`),
-  UNIQUE KEY `ID User_UNIQUE` (`ID User`)
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ID User_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -44,29 +44,30 @@ LOCK TABLES `accounts` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `countries statistics`
+-- Table structure for table `countries`
 --
 
-DROP TABLE IF EXISTS `countries statistics`;
+DROP TABLE IF EXISTS `countries`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `countries statistics` (
-  `ID country` varchar(255) NOT NULL,
-  `Name` varchar(255) DEFAULT NULL,
-  `Average Age Female` int DEFAULT NULL,
-  `Average Age Male` int DEFAULT NULL,
-  PRIMARY KEY (`ID country`),
-  UNIQUE KEY `ID country_UNIQUE` (`ID country`)
+CREATE TABLE `countries` (
+  `id` varchar(255) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `avg_female` int DEFAULT NULL,
+  `avg_male` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ID country_UNIQUE` (`id`),
+  KEY `name_idx` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `countries statistics`
+-- Dumping data for table `countries`
 --
 
-LOCK TABLES `countries statistics` WRITE;
-/*!40000 ALTER TABLE `countries statistics` DISABLE KEYS */;
-/*!40000 ALTER TABLE `countries statistics` ENABLE KEYS */;
+LOCK TABLES `countries` WRITE;
+/*!40000 ALTER TABLE `countries` DISABLE KEYS */;
+/*!40000 ALTER TABLE `countries` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -77,12 +78,14 @@ DROP TABLE IF EXISTS `feed`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `feed` (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `PostData` blob,
-  `PostName` varchar(255) DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `post_data` blob,
+  `post_name` varchar(255) DEFAULT NULL,
   `topic` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  UNIQUE KEY `ID_UNIQUE` (`ID`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ID_UNIQUE` (`id`),
+  KEY `topic_idx` (`topic`),
+  CONSTRAINT `topic` FOREIGN KEY (`topic`) REFERENCES `topics` (`abbreviation`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -103,10 +106,10 @@ DROP TABLE IF EXISTS `topics`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `topics` (
-  `Abbreviation` varchar(255) NOT NULL,
-  `Theme` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`Abbreviation`),
-  UNIQUE KEY `Abbreviation_UNIQUE` (`Abbreviation`)
+  `abbreviation` varchar(255) NOT NULL,
+  `theme` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`abbreviation`),
+  UNIQUE KEY `Abbreviation_UNIQUE` (`abbreviation`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -120,35 +123,38 @@ LOCK TABLES `topics` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `user's personal data`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user's personal data`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user's personal data` (
-  `ID User` int NOT NULL AUTO_INCREMENT,
-  `Gender` varchar(255) DEFAULT NULL,
-  `Birthday` datetime DEFAULT NULL,
-  `Country` varchar(255) DEFAULT NULL,
-  `Smoking` tinyint DEFAULT NULL,
-  `Drinking alcohol` tinyint DEFAULT NULL,
-  `Healthy food` tinyint DEFAULT NULL,
-  `Sport` tinyint DEFAULT NULL,
-  `Chronic diseases` varchar(255) DEFAULT NULL,
-  `User's picture` blob,
-  PRIMARY KEY (`ID User`),
-  UNIQUE KEY `ID User_UNIQUE` (`ID User`)
+CREATE TABLE `user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `gender` varchar(255) DEFAULT NULL,
+  `birthday` datetime DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `smoking` tinyint DEFAULT NULL,
+  `drinking` tinyint DEFAULT NULL,
+  `healthy_food` tinyint DEFAULT NULL,
+  `sport` tinyint DEFAULT NULL,
+  `diseases` varchar(255) DEFAULT NULL,
+  `picture` blob,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ID User_UNIQUE` (`id`),
+  KEY `country_idx` (`country`),
+  CONSTRAINT `country` FOREIGN KEY (`country`) REFERENCES `countries` (`name`),
+  CONSTRAINT `id` FOREIGN KEY (`id`) REFERENCES `accounts` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user's personal data`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `user's personal data` WRITE;
-/*!40000 ALTER TABLE `user's personal data` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user's personal data` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -168,4 +174,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-25 11:20:32
+-- Dump completed on 2021-10-27  2:32:16
