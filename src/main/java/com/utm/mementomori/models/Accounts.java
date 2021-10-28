@@ -1,4 +1,4 @@
-package com.utm.mementomori.entity;
+package com.utm.mementomori.models;
 
 import javax.persistence.*;
 
