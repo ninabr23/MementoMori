@@ -30,7 +30,8 @@ CREATE TABLE `accounts` (
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `ID User_UNIQUE` (`id`)
+  UNIQUE KEY `ID_UNIQUE` (`id`),
+  CONSTRAINT `id` FOREIGN KEY (`id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -56,7 +57,7 @@ CREATE TABLE `countries` (
   `avg_female` int DEFAULT NULL,
   `avg_male` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `ID country_UNIQUE` (`id`),
+  UNIQUE KEY `ID_UNIQUE` (`id`),
   KEY `name_idx` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -141,11 +142,9 @@ CREATE TABLE `user` (
   `diseases` varchar(255) DEFAULT NULL,
   `picture` blob,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `ID User_UNIQUE` (`id`),
   KEY `country_idx` (`country`),
-  CONSTRAINT `country` FOREIGN KEY (`country`) REFERENCES `countries` (`name`),
-  CONSTRAINT `id` FOREIGN KEY (`id`) REFERENCES `accounts` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `country` FOREIGN KEY (`country`) REFERENCES `countries` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,4 +173,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-27  2:32:16
+-- Dump completed on 2021-10-28 11:36:51

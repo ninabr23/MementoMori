@@ -12,13 +12,12 @@ public class User {
     @Column(name = "id")
     private Integer id;
 
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "id")
-    private Accounts accounts;
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Accounts account;
 
     @ManyToOne
-    @JoinColumn(name = "country", nullable = false)
+    @JoinColumn(name = "country")
     private Countries countries;
 
     @Column(name = "gender")

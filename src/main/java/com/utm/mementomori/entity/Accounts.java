@@ -10,8 +10,9 @@ public class Accounts {
     @Column(name = "id")
     private Integer id;
 
-    @OneToOne(mappedBy = "accounts", cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "id")
     private User user;
 
     @Column(name = "name")
