@@ -20,6 +20,9 @@ public class User {
     @JoinColumn(name = "country")
     private Countries countries;
 
+    @Column(name = "name")
+    private String name;
+
     @Column(name = "gender")
     private String gender;
 
@@ -47,6 +50,10 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setGender(String gender) {
@@ -88,6 +95,8 @@ public class User {
     public Integer getId() {
         return id;
     }
+
+    public String getName() { return name; }
 
     public String getGender() {
         return gender;

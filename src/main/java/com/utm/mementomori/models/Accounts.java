@@ -15,9 +15,6 @@ public class Accounts {
     @JoinColumn(name = "id")
     private User user;
 
-    @Column(name = "name")
-    private String name;
-
     @Column(name = "email")
     private String email;
 
@@ -26,10 +23,6 @@ public class Accounts {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public void setEmail(String email) {
@@ -44,15 +37,9 @@ public class Accounts {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public String getEmail() {
         return email;
     }
 
-    public String getPassword() {
-        return password;
-    }
+    public String getPassword() { return password; }
 }
