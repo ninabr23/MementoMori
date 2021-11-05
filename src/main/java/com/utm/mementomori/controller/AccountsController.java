@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(path = "/logindemo")
+@RequestMapping({"", "/", "/index"})
 public class AccountsController {
     private final LoginService loginService;
 
@@ -22,7 +22,8 @@ public class AccountsController {
 
     @GetMapping(path = "/check")
     public @ResponseBody
-    String logIn(Model model, @RequestParam String email, @RequestParam String password) {
+    String logIn(Model model, @RequestParam(value = "email") String email
+            , @RequestParam(value = "password") String password) {
         model.addAttribute("response", loginService.checkExistence(email, password));
         return "checked";
     }
@@ -30,8 +31,9 @@ public class AccountsController {
     //update email
     @PostMapping(path = "/update1")
     public @ResponseBody
-    String updateEmail(Model model, @RequestParam String email, @RequestParam String password
-            , @RequestParam String newEmail) {
+    String updateEmail(Model model, @RequestParam(value = "email") String email
+            , @RequestParam(value = "password") String password
+            , @RequestParam(value = "newEmail") String newEmail) {
         model.addAttribute("update1", loginService.updateAccountEmail(email, password, newEmail));
         return "updated1";
     }
@@ -39,8 +41,8 @@ public class AccountsController {
     //update password
     @PostMapping(path = "/update2")
     public @ResponseBody
-    String updatePassword(Model model, @RequestParam String email
-            , @RequestParam String newPassword) {
+    String updatePassword(Model model, @RequestParam(value = "email") String email
+            , @RequestParam(value = "newPassword") String newPassword) {
         model.addAttribute("update2", loginService.updateAccountPassword(email, newPassword));
         return "updated2";
     }
