@@ -61,7 +61,7 @@ Login
                             <div class = "m-r-12">
                                 <span class="txt1 p-b-11">First Name</span>
                                 <div class="wrap-input100 validate-input m-b-12" data-validate="First name is required">
-                                    <input class="input100 b-r-6" type="text" name="firstname">
+                                    <input class="input100 b-r-6" type="text" name="firstname" placeholder="Last Name">
                                     <span class="focus-input100"></span>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@ Login
                             <div>
                                 <span class="txt1 p-b-11">Last Name</span>
                                 <div class="wrap-input100 validate-input m-b-12" data-validate="Last name is required">
-                                    <input class="input100" type="text" name="lastname">
+                                    <input class="input100" type="text" name="lastname" placeholder="Last Name">
                                     <span class="focus-input100"></span>
                                 </div>
                             </div>
@@ -187,13 +187,17 @@ Login
                         <span class="txt1 p-b-6">Gender</span>
                         <span class="login100-form-title"></span>
                         <div class = "flex-row">
-                            <input type="radio" id="gender1" name="gender" value="Male">
-                            <label class="m-r-12" for="gender">Male</label>
-                            <input type="radio" id="gender2" name="gender" value="Female">
-                            <label class="m-r-12" for="gender">Female</label>
+                            <div class = "flex-row">
+                                <input type="radio" id="gender1" name="gender" value="Male">
+                                <label class="m-r-12 m-l-6" for="gender">Male</label>
+                            </div>
+                            <div class = "flex-row">
+                                <input type="radio" id="gender2" name="gender" value="Female">
+                                <label class="m-r-12 m-l-6" for="gender">Female</label>
+                            </div>
                         </div>
 
-                        <span class="login100-form-title p-b-12"></span>
+                        <!-- <span class="login100-form-title p-b-12"></span>
                         <div class="flex-sb-m w-full p-b-30">
                             <div class="contact100-form-checkbox">
                                 <input class="input-checkbox100" id="ckbToS" type="checkbox" name="Terms of service">
@@ -207,9 +211,9 @@ Login
                                 </label>
 
                             </div>
-                        </div>
+                        </div> -->
                         <div class="container-login100-form-btn" style="justify-content: center;">
-                            <button class="login100-form-btn" style="background-color: #57b846;">Sign up</button>
+                            <button class="login101-form-btn">Sign up</button>
                         </div>
 
                         <div style="text-align: center; width: 100%;">
