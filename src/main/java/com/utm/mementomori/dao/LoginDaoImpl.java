@@ -1,7 +1,6 @@
 package com.utm.mementomori.dao;
 
 import com.utm.mementomori.models.Accounts;
-import com.utm.mementomori.repository.AccountsRepository;
 import com.utm.mementomori.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
