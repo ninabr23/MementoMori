@@ -92,6 +92,10 @@ public class User {
         this.picture = picture;
     }
 
+    public void setAccount(Accounts account) {
+        this.account = account;
+    }
+
     public Integer getId() {
         return id;
     }
