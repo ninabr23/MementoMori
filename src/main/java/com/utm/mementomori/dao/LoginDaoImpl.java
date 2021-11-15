@@ -1,6 +1,8 @@
 package com.utm.mementomori.dao;
 
 import com.utm.mementomori.models.Accounts;
+import com.utm.mementomori.repository.AccountsRepository;
+import com.utm.mementomori.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +14,9 @@ public class LoginDaoImpl implements LoginDao<Accounts> {
 
     @Autowired
     private EntityManager entityManager;
+
+    @Autowired
+    private LoginService loginService;
 
     @Override
     public Accounts getSingleByEmail(String email) {
@@ -26,10 +31,8 @@ public class LoginDaoImpl implements LoginDao<Accounts> {
     @Override
     public void updatePassword(Accounts toUpdate, String password) {
         toUpdate.setPassword(password);
+        loginService.save(toUpdate);
     }
 
-    @Override
-    public void updateEmail(Accounts toUpdate, String email) {
-        toUpdate.setEmail(email);
-    }
+
 }

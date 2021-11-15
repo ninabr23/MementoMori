@@ -1,49 +1,29 @@
 package com.utm.mementomori.controller;
 
+import com.utm.mementomori.dto.LoginDTO;
 import com.utm.mementomori.service.LoginService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping({"", "/", "/index"})
+@RequestMapping(path = "/login")
 public class AccountsController {
     private final LoginService loginService;
 
-    @Autowired
     public AccountsController(LoginService loginService) {
         this.loginService = loginService;
     }
 
     @GetMapping(path = "/check")
-    public @ResponseBody
-    String logIn(Model model, @RequestParam(value = "email") String email
-            , @RequestParam(value = "password") String password) {
-        model.addAttribute("response", loginService.checkExistence(email, password));
-        return "checked";
+    @ResponseBody
+    public ResponseEntity<String> logIn(@RequestBody LoginDTO loginDTO) {
+        return loginService.checkExistence(loginDTO);
     }
 
-    //update email
-    @PostMapping(path = "/update1")
-    public @ResponseBody
-    String updateEmail(Model model, @RequestParam(value = "email") String email
-            , @RequestParam(value = "password") String password
-            , @RequestParam(value = "newEmail") String newEmail) {
-        model.addAttribute("update1", loginService.updateAccountEmail(email, password, newEmail));
-        return "updated1";
-    }
-
-    //update password
-    @PostMapping(path = "/update2")
-    public @ResponseBody
-    String updatePassword(Model model, @RequestParam(value = "email") String email
-            , @RequestParam(value = "newPassword") String newPassword) {
-        model.addAttribute("update2", loginService.updateAccountPassword(email, newPassword));
-        return "updated2";
+    @PutMapping(path = "/update")
+    @ResponseBody
+    public ResponseEntity<String> updatePassword(@RequestBody LoginDTO loginDTO) {
+        return loginService.update(loginDTO);
     }
 }

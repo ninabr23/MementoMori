@@ -1,13 +1,15 @@
 package com.utm.mementomori.service;
 
+import com.utm.mementomori.dto.LoginDTO;
 import com.utm.mementomori.models.Accounts;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
 public interface LoginService {
-    boolean checkExistence(String email, String password);
+    ResponseEntity<String> checkExistence(LoginDTO loginDTO);
 
-    Accounts updateAccountPassword(String email, String newPassword);
+    ResponseEntity<String> update(LoginDTO loginDTO);
 
-    Accounts updateAccountEmail(String email, String password, String newEmail);
+    void save(Accounts account);
 }
