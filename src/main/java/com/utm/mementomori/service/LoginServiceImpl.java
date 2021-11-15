@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,6 +20,8 @@ public class LoginServiceImpl implements LoginService {
 
     @Autowired
     private AccountsRepository repository;
+
+    static Logger log = Logger.getLogger(LoginServiceImpl.class.getName());
 
     @Override
     public ResponseEntity<String> checkExistence(LoginDTO loginDTO) {
@@ -37,8 +40,8 @@ public class LoginServiceImpl implements LoginService {
                 loginDao.updatePassword(account, loginDTO.getPassword());
                 return new ResponseEntity<>("Your account was successfully updated with the following information:\n"
                         + account, HttpStatus.OK);
-            } else System.out.println("New password invalid. Please choose another one.");
-        } else System.out.println("Account with such an email does not exist.");
+            } else log.info("New password invalid. Please choose another one.");
+        } else log.info("Account with such an email does not exist.");
         return new ResponseEntity<>("Your account was not updated. Verify the correctitude of the typed in " +
                 "information and try again.", HttpStatus.BAD_REQUEST);
     }
