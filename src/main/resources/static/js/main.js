@@ -40,4 +40,15 @@
             showPass = 0;
         }
     });
+
+    document.getElementById("loginBtn").onclick = function(){getInputValues()};
+
+    function getInputValues() {
+        var email = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        alert(email);
+        alert(password);
+    }
+
 })(jQuery);
