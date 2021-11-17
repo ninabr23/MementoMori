@@ -59,11 +59,30 @@
     };
 
     function getInputValues() {
-        var email = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
+        const email = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
 
-        alert(email);
-        alert(password);
+        const url = 'http://localhost:8080/login/check';
+        const data = {
+            email: email,
+            password: password
+        };
+
+        $.ajax({
+            url: url,
+            data: JSON.stringify(data),
+            type: "GET",
+            method: "GET",
+            // dataType: 'json',
+            contentType: 'application/json',
+            mimeType: 'application/json',
+            success: function(response) {
+                alert("nice");
+            },
+            error: function(xhr) {
+                alert("not nice");
+            }
+        });
     }
 
 })(jQuery);
