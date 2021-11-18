@@ -61,7 +61,7 @@ Login
                             <div class = "m-r-12">
                                 <span class="txt1 p-b-11">First Name</span>
                                 <div class="wrap-input100 validate-input m-b-12" data-validate="First name is required">
-                                    <input class="input100 b-r-6" type="text" name="firstname" placeholder="Last Name">
+                                    <input class="input100 b-r-6" type="text" name="firstname" placeholder="First name">
                                     <span class="focus-input100"></span>
                                 </div>
                             </div>
@@ -77,11 +77,15 @@ Login
 
                         </div>
 
+                        <span class="login100-form-title p-b-20"></span>
+
                         <span class="txt1 p-b-11">E-mail adress</span>
                         <div class="wrap-input100 validate-input m-b-12" data-validate="E-mail adress is required">
                             <input class="input100" type="text" name="email" placeholder="Please enter your email">
                             <span class="focus-input100"></span>
                         </div>
+
+                        <span class="login100-form-title p-b-20"></span>
 
                         <span class="login100-form-title"></span>
                         <span class="txt1 p-b-11">Password</span>
@@ -93,6 +97,8 @@ Login
                             <span class="focus-input100"></span>
                         </div>
 
+                        <span class="login100-form-title p-b-20"></span>
+
                         <span class="txt1 p-b-11">Repeat Password</span>
                         <div class="wrap-input100 validate-input m-b-12" data-validate="Passwords are different">
                             <span class="btn-show-pass">
@@ -102,13 +108,14 @@ Login
                             <span class="focus-input100"></span>
                         </div>
 
+                        <span class="login100-form-title p-b-20"></span>
+
                         <span class="txt1 p-b-11">Birthday</span>
                         <span class="login100-form-title"></span>
                         <div class = "flex-row">
                             <div class = "m-r-12">
                                 <div class="wrap-input100 validate-input m-b-12" data-validate="Day is required">
                                     <select class="select100" style="width: auto;">
-                                        <option selected>Day</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -147,7 +154,6 @@ Login
                             <div class = "m-r-12">
                                 <div class="wrap-input100 validate-input m-b-12" data-validate="Month is required">
                                     <select class="select100" style="width: auto;">
-                                        <option selected>Month</option>
                                         <option value="1">January</option>
                                         <option value="2">February</option>
                                         <option value="3">March</option>
@@ -165,53 +171,44 @@ Login
                                 </div>
                             </div>
                             <div class="wrap-input100 validate-input m-b-12" data-validate="Year is required">
-                                <input class="input100" type="text" name="year" placeholder="Year">
+                                <input class="input100" type="text" name="year" placeholder="2021">
                                 <span class="focus-input100"></span>
                             </div>
 
                         </div>
+
+                        <span class="login100-form-title p-b-20"></span>
+
                         <span class="login100-form-title"></span>
                         <span class="txt1 p-b-11">Country</span>
-                        <div class="wrap-input100 validate-input m-b-12" data-validate="Month is required">
+                        <div class="wrap-input100 validate-input m-b-12">
                             <select class="select100">
-                                <option selected>Country</option>
                                 <option value="1">Moldova</option>
+                                <option value="5">Nigeria</option>
                                 <option value="2">Romania</option>
                                 <option value="3">Russia</option>
                                 <option value="4">United States of America</option>
-                                <option value="5">Nigeria</option>
                               </select>
                               <span class="focus-select100"></span>
                         </div>
 
+                        <span class="login100-form-title p-b-20"></span>
+
                         <span class="txt1 p-b-6">Gender</span>
                         <span class="login100-form-title"></span>
+
                         <div class = "flex-row">
                             <div class = "flex-row">
                                 <input type="radio" id="gender1" name="gender" value="Male">
-                                <label class="m-r-12 m-l-6" for="gender">Male</label>
+                                <label class="m-r-12 m-l-6" for="gender1">Male</label>
                             </div>
+
                             <div class = "flex-row">
                                 <input type="radio" id="gender2" name="gender" value="Female">
-                                <label class="m-r-12 m-l-6" for="gender">Female</label>
+                                <label class="m-r-12 m-l-6" for="gender2">Female</label>
                             </div>
                         </div>
 
-                        <!-- <span class="login100-form-title p-b-12"></span>
-                        <div class="flex-sb-m w-full p-b-30">
-                            <div class="contact100-form-checkbox">
-                                <input class="input-checkbox100" id="ckbToS" type="checkbox" name="Terms of service">
-                                <label class="label-checkbox100" for="ckbToS" style="color: #555;">
-                                    I agree with the
-                                    <span>
-                                        <a href="#" class="txtblue" >
-                                    Terms of service
-                                        </a>
-                                    </span>
-                                </label>
-
-                            </div>
-                        </div> -->
                         <div class="container-login100-form-btn" style="justify-content: center;">
                             <button class="login101-form-btn">Sign up</button>
                         </div>
