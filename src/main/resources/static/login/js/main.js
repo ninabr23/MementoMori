@@ -55,15 +55,11 @@
     });
 
     document.getElementById("loginBtn").onclick = function () {
-        getInputValues()
-    };
-
-    function getInputValues() {
-        const email = document.getElementById("username").value;
+        const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
 
-        const url = 'http://localhost:8080/login/check';
-        const data = {
+        const url = 'http://localhost:8080/login/sign-in';
+        let data = {
             email: email,
             password: password
         };
@@ -71,18 +67,39 @@
         $.ajax({
             url: url,
             data: JSON.stringify(data),
-            type: "GET",
-            method: "GET",
-            // dataType: 'json',
+            method: "POST",
             contentType: 'application/json',
-            mimeType: 'application/json',
             success: function(response) {
-                alert("nice");
+
             },
             error: function(xhr) {
                 alert("not nice");
             }
         });
-    }
+    };
+
+    document.getElementById("forgotBtn").onclick = function () {
+        const email = document.getElementById("email").value;
+        const newPassword = document.getElementById("password").value;
+
+        const url = 'http://localhost:8080/login/update';
+        let data = {
+            email: email,
+            password: newPassword
+        };
+
+        $.ajax({
+            url: url,
+            data: JSON.stringify(data),
+            method: "PUT",
+            contentType: 'application/json',
+            success: function(response) {
+
+            },
+            error: function(xhr) {
+                alert("not nice");
+            }
+        });
+    };
 
 })(jQuery);

@@ -4,10 +4,11 @@ import com.utm.mementomori.dto.LoginDTO;
 import com.utm.mementomori.service.LoginService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(path = "/login")
+@RequestMapping("loginPage")
 public class AccountsController {
     private final LoginService loginService;
 
@@ -15,9 +16,9 @@ public class AccountsController {
         this.loginService = loginService;
     }
 
-    @GetMapping(path = "/check")
+    @PostMapping(path = "/sign-in")
     @ResponseBody
-    public ResponseEntity<String> logIn(@RequestBody LoginDTO loginDTO) {
+    public ResponseEntity<String> logIn(@RequestBody LoginDTO loginDTO, Model model) {
         return loginService.checkExistence(loginDTO);
     }
 
