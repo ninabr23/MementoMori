@@ -71,8 +71,8 @@
             contentType: 'application/json',
             success: function(response) {
                 alert("success");
-                //location.href = 'http://localhost:8080/userPage/userPage/'+email;
-                window.location.replace('http://localhost:8080/userPage/userPage/'+email);
+                //location.href = 'http://localhost:8080/login/'+email;
+                window.location.replace('http://localhost:8080/login/'+email);
             },
             error: function(xhr) {
                 alert("not nice");

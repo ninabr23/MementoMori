@@ -15,10 +15,17 @@ public class AccountsController {
         this.loginService = loginService;
     }
 
+    private ModelAndView mv = new ModelAndView("index");
+
     @PostMapping(path = "/signIn")
     @ResponseBody
-    public ModelAndView logIn(@RequestBody LoginDTO loginDTO) {
-        return loginService.checkExistence(loginDTO);
+    public void logIn(@RequestBody LoginDTO loginDTO) {
+        mv = loginService.checkExistence(loginDTO);
+    }
+
+    @GetMapping(path = "/{email}")
+    public ModelAndView showView(@PathVariable String email) {
+        return mv;
     }
 
     @PutMapping(path = "/update")

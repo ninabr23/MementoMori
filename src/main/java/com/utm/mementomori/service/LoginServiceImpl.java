@@ -30,7 +30,7 @@ public class LoginServiceImpl implements LoginService {
             ModelAndView modelAndView = new ModelAndView("userPage");
             modelAndView.addObject("user", loginDTO.getEmail());
             return modelAndView;
-        } else return new ModelAndView("index");
+        } else return new ModelAndView("index").addObject("user", "invalidEmail");
     }
 
     @Override
