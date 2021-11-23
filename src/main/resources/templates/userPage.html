@@ -1,102 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/user/css/style.css}"/>
+    <script th:src="@{user/js/script.js}"></script>
 </head>
 <body>
-    <div class="container-fluid">
-      <header>
-          <div class="container1">
-                
-                <div id="mySidenav" class="sidenav">
-                  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                  
-                  <a href="#"><img src="icon/person-circle.svg" alt="" class="imgsdnav">User Cabinet</a>
-                  <a href="#">Personal Reflections</a>
-                  <a href="#">Forum</a>
-                  <a href="#">Literature</a>
-                  <a href="#">Art</a>
-                  <a href="#">Music</a>
-                  <a href="#">Bookmarks</a>
-                  <br>
-                  <br>
-                  <br>
-                  <a href="#">Retake Query</a>
-                  <a href="#">Forum</a>
-                  <a href="#">Literature</a>
-                </div>
-                
-                <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-                
+<div class="container-fluid">
+    <header>
+        <div class="container1">
+
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+                <a href="#"><img th:src="@{user/icon/person-circle.svg}" alt="" class="imgsdnav">User Cabinet</a>
+                <a href="#">Personal Reflections</a>
+                <a href="#">Forum</a>
+                <a href="#">Literature</a>
+                <a href="#">Art</a>
+                <a href="#">Music</a>
+                <a href="#">Bookmarks</a>
+                <br>
+                <br>
+                <br>
+                <a href="#">Retake Query</a>
+                <a href="#">Forum</a>
+                <a href="#">Literature</a>
+            </div>
+
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
             <h1 class="logo">Memento Mori</h1>
         </div>
-      </header>
-      <section class="container2">
-        <img src="icon/person-circle.svg" alt="" class="phtuser">
+    </header>
+    <section class="container2">
+        <img th:src="@{user/icon/person-circle.svg}" alt="" class="phtuser">
+        <p th:text="${user}"></p>
         <h3 class="name">Name Surname</h3>
-      </section>
-          <section class="qst">
-            <div class="qst1">
-              <h4>Do you smoke ?</h4>
-            </div>
-            <input type="checkbox" class="chs">Yes 
-            <input type="checkbox" class="chs">No
-          </section>
+    </section>
+    <section class="qst">
+        <div class="qst1">
+            <h4>Do you smoke ?</h4>
+        </div>
+        <input type="checkbox" class="chs">Yes
+        <input type="checkbox" class="chs">No
+    </section>
 
-          <section class="qst">
-            <div class="qst1">
-              <h4>Do you drink alcoholic beverages ?</h4>
-            </div>
-            <input type="checkbox" class="chs">Yes 
-            <input type="checkbox" class="chs">No
-          </section>
+    <section class="qst">
+        <div class="qst1">
+            <h4>Do you drink alcoholic beverages ?</h4>
+        </div>
+        <input type="checkbox" class="chs">Yes
+        <input type="checkbox" class="chs">No
+    </section>
 
-          <section class="qst">
-            <div class="qst1">
-              <h4>What type of food do you primarily eat ?</h4>
-            </div>
-            <input type="checkbox" class="chs">Healthy 
-            <input type="checkbox" class="chs">Junk Food
-          </section>
+    <section class="qst">
+        <div class="qst1">
+            <h4>What type of food do you primarily eat ?</h4>
+        </div>
+        <input type="checkbox" class="chs">Healthy
+        <input type="checkbox" class="chs">Junk Food
+    </section>
 
-          <section class="qst">
-            <div class="qst1">
-              <h4>What type of life do you lead ?</h4>
-            </div>
-            <input type="checkbox" class="chs">Sedentary 
-            <input type="checkbox" class="chs">Sporty
-          </section>
+    <section class="qst">
+        <div class="qst1">
+            <h4>What type of life do you lead ?</h4>
+        </div>
+        <input type="checkbox" class="chs">Sedentary
+        <input type="checkbox" class="chs">Sporty
+    </section>
 
-          <section class="qst">
-            <div class="qst1">
-              <h4>Do yu have any chronic desease? ?</h4>
-            </div>
-            <input type="text" class="inpfrm" placeholder="Write here...">
-            <br>
-            <input type="text" class="inpfrm" placeholder="Write here...">
-            <br>
-            <input type="text" class="inpfrm" placeholder="Write here...">
-            <br>
-            <button class="sv" id="sv">Save</button>
-          </section>
+    <section class="qst">
+        <div class="qst1">
+            <h4>Do yu have any chronic desease? ?</h4>
+        </div>
+        <input type="text" class="inpfrm" placeholder="Write here...">
+        <br>
+        <input type="text" class="inpfrm" placeholder="Write here...">
+        <br>
+        <input type="text" class="inpfrm" placeholder="Write here...">
+        <br>
+        <button class="sv" id="sv">Save</button>
+    </section>
 
-          
-      </div>
-    </div>
-  
-     
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+</div>
+</div>
+
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
 </body>
 </html>
