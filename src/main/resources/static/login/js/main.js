@@ -70,7 +70,7 @@
             method: "POST",
             contentType: 'application/json',
             success: function(response) {
-                alert("success");
+                //alert("success");
                 //location.href = 'http://localhost:8080/login/'+email;
                 window.location.replace('http://localhost:8080/login/'+email);
             },
