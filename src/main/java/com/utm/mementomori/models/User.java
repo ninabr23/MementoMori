@@ -137,4 +137,8 @@ public class User {
     public Blob getPicture() {
         return picture;
     }
+
+    public Accounts getAccount() {
+        return account;
+    }
 }

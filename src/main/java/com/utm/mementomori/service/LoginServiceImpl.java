@@ -28,7 +28,7 @@ public class LoginServiceImpl implements LoginService {
 
         if (account != null && account.getPassword().equals(loginDTO.getPassword())) {
             ModelAndView modelAndView = new ModelAndView("userPage");
-            modelAndView.addObject("user", loginDTO.getEmail());
+            modelAndView.addObject("user", loginDTO);
             return modelAndView;
         } else return new ModelAndView("index").addObject("user", "Incorrect email or password. Try again or click Forgot password?");
     }

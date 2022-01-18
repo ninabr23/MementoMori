@@ -79,29 +79,29 @@
             }
         });
     };
-    //
-    // document.getElementById("forgotBtn").onclick = function () {
-    //     const email = document.getElementById("email").value;
-    //     const newPassword = document.getElementById("password").value;
-    //
-    //     const url = 'http://localhost:8080/login/update';
-    //     let data = {
-    //         email: email,
-    //         password: newPassword
-    //     };
-    //
-    //     $.ajax({
-    //         url: url,
-    //         data: JSON.stringify(data),
-    //         method: "PUT",
-    //         contentType: 'application/json',
-    //         success: function(response) {
-    //
-    //         },
-    //         error: function(xhr) {
-    //             alert("not nice");
-    //         }
-    //     });
-    // };
+
+    document.getElementById("forgotBtn").onclick = function () {
+        const email = document.getElementById("email").value;
+        const newPassword = document.getElementById("password").value;
+
+        const url = 'http://localhost:8080/login/update';
+        let data = {
+            email: email,
+            password: newPassword
+        };
+
+        $.ajax({
+            url: url,
+            data: JSON.stringify(data),
+            method: "PUT",
+            contentType: 'application/json',
+            success: function(response) {
+
+            },
+            error: function(xhr) {
+                alert("not nice");
+            }
+        });
+    };
 
 })(jQuery);
