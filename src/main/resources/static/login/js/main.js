@@ -75,7 +75,7 @@
                 window.location.replace('http://localhost:8080/login/'+email);
             },
             error: function(xhr) {
-                alert("not nice");
+                alert("An error has occurred.");
             }
         });
     };
